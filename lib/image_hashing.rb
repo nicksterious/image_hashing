@@ -46,8 +46,8 @@ module ImageHashing
     end # hash
 
 
-    def get_rgb_qties
-        image = @image
+    def get_rgb_qties(i)
+        image = i
         if image.format.to_s != "uchar"  
             image = image.colourspace(:rgb)  # Convert to RGB if necessary
         end
@@ -68,8 +68,7 @@ module ImageHashing
         }  
     end # get_rgb_qties
 
-    def get_histogram
-        image = @image
+    def get_histogram(image)
         begin
             return get_rgb_qties(image)
         rescue
