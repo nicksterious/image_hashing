@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 require_relative "image_hashing/version"
-require "vips"
-require "image_processing/vips"
-require "json"
-require "digest"
-require "dhash-vips"
+# require "vips"
+# require "image_processing/vips"
+# require "json"
+# require "digest"
+# require "dhash-vips"
 
 module ImageHashing
   class Error < StandardError; end
