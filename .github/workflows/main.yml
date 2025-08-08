@@ -13,7 +13,7 @@ jobs:
         ruby-version: 3.0.1
     - name: Run the default task
       run: |
-        apt-get install vips libvips-dev libvips-tools
+        sudo apt install vips libvips-dev libvips-tools
         gem install bundler -v 2.2.15
         bundle install
         bundle exec rake
