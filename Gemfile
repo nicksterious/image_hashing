@@ -9,9 +9,9 @@ gem "rake", "~> 13.0"
 
 gem "rspec", "~> 3.0"
 
-
+gem "vips"
 gem "ruby-vips", "~> 2.2.4"
 gem "image_processing", "~> 1.14.0"
-gem "vips"
+
 gem "digest"
 gem "dhash-vips", "~> 0.2.4.0"

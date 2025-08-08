@@ -12,17 +12,17 @@ module ImageHashing
 
   class ImageHash
     def initialize(file_name)
-      @image = Vips::Image.new_from_file(file_name)
+      @image = ::Vips::Image.new_from_file(file_name)
       @output = {
           file_name: file_name,
           file_size_bytes: File.size(file_name),
-          file_md5_hash: Digest::MD5.file(file_name).hexdigest,
+          file_md5_hash: ::Digest::MD5.file(file_name).hexdigest,
           width: @image.width,
           height: @image.height,
           format: @image.format,
           original: {
-              dhash: DHashVips::DHash.calculate(@image).to_s,
-              idhash: DHashVips::IDHash.fingerprint(@image).to_s,
+              dhash: ::DHashVips::DHash.calculate(@image).to_s,
+              idhash: ::DHashVips::IDHash.fingerprint(@image).to_s,
               histogram: get_histogram(@image)
           }
       }
@@ -31,14 +31,14 @@ module ImageHashing
 
     def generate
       # get some metadata based on several other resolutions
-      image = ImageProcessing::Vips.source(@image)
+      image = ::ImageProcessing::Vips.source(@image)
       image = image.convert("png")
       [800, 400, 200, 100, 50].each do |size|
           resized_image = image.resize_to_limit(size, size).call(save: false)
           @output["#{size}x#{size}"] = {
               size: size,
-              dhash: DHashVips::DHash.calculate(resized_image).to_s,
-              idhash: DHashVips::IDHash.fingerprint(resized_image).to_s,
+              dhash: ::DHashVips::DHash.calculate(resized_image).to_s,
+              idhash: ::DHashVips::IDHash.fingerprint(resized_image).to_s,
               histogram: get_histogram(resized_image)
           }
       end
