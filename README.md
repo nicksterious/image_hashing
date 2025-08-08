@@ -1,8 +1,6 @@
 # ImageHashing
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/image_hashing`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem generates hopefully unique image hashes based on pHash and RGB color histograms. You can persist these in your database where you keep track of your images, and use them to query for duplicates as new images are added.
 
 ## Installation
 
@@ -22,7 +20,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+file_name = "image1.webp"
+
+require "image_hashing"
+
+hasher = ImageHash::ImageHash.new(file_name)
+puts hasher.generate
+```
 
 ## Development
 
