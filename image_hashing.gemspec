@@ -31,6 +31,10 @@ Gem::Specification.new do |spec|
 
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "example-gem", "~> 1.0"
+  spec.add_dependency "vips", "~> 8.15"
+  spec.add_dependency "ruby-vips", "~> 2.2.4"
+  spec.add_dependency "image_processing", "~> 1.14.0"
+  spec.add_dependency "dhash-vips", "~> 0.2.4.0"
 
   # For more information and examples about making a new gem, checkout our
   # guide at: https://bundler.io/guides/creating_gem.html
